@@ -1,0 +1,77 @@
+import java.util.Scanner;
+
+  public class Pagamento{
+
+  Scanner s = new Scanner (System.in);
+
+  double preco, troco = 0, valor = 0, valorPagar = 0;
+  int opcao, dias;
+
+  public void apresentarMenu(){
+    System.out.println("********************MENU*********************");
+    System.out.println("1.Quarto - 1 cama de solteiro - 5000 meticais");
+    System.out.println("2.Quarto - 2 camas de solteiro - 8500 meticais");
+    System.out.println("3.Quarto - 1 cama casal.......- 12750 meticais");
+    System.out.println("4.Quarto VIP..................- 18900 meticais");
+    System.out.println("5.Suit presidencial...........- 25000 meticais");
+    System.out.println("**********************************************");
+  }
+
+  public void devolveTroco(float preco){
+    int cont = 0;
+    do{
+      System.out.println("Escolha a quantidade de dias : ");
+      dias = s.nextInt();
+
+      if(dias > 90){
+        valorPagar = dias * preco;
+        valorPagar = valorPagar - valorPagar * 0.5;
+      }else if(dias > 30 && dias <= 90){
+        valorPagar = dias * preco;
+        valorPagar = valorPagar - valorPagar * 0.2;
+      }else if(dias > 15 && dias <= 30){
+        valorPagar = dias * preco;
+        valorPagar = valorPagar - valorPagar * 0.15;
+      }else if(dias > 7 && dias <= 15){
+        valorPagar = dias * preco;
+        valorPagar = valorPagar valor * 0.1;
+      }else{
+        valorPagar = dias * preco;
+      }
+      System.out.println("Valor a pagar : "+valorPagar);
+      Syste.out.println("Introduza o valor de pagamento : ");
+      valor = s.nextFloat();
+
+      if(valor < valorPagar){
+        System.out.println("Valor insuficiente! Valor dever maior ou igual a "+valorPagar);
+      }else{
+        troco = valor - valorPagar;
+        System.out.println("Valor pago : "+valor+"\nTroco : "+troco);
+      }
+      cont++;
+    }while(valor < valorPagar);
+
+  public void escolherOpcao(){
+    do{
+      apresentarMenu();
+      System.out.println("Escolha uma opcao : ");
+      opcao = s.nextInt();
+
+      if(opcao == 1){
+        devolveTroco(5000);
+      }else id(opcao == 2){
+        devolveTroco(8500);
+      }else if(opcao == 3){
+        devolveTroco(12750);
+      }else if(opcao == 4){
+        devolveTroco(18900);
+      }else if(opcao == 5){
+        devolveTroco(25000);
+      }
+      System.out.println("Pretende escolher uma opcao ? (S/N)");
+      opcao = (char)s.next().charAt(0);
+    }while(opcao == 's');
+  }
+}
+}
+  
